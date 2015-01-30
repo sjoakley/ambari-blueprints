@@ -25,7 +25,7 @@
         {"name": "YARN_CLIENT"},
         {"name": "GANGLIA_MONITOR"},
         {"name": "GANGLIA_SERVER"},
-        {"name": "NAGIO_SERVER"},
+        {"name": "NAGIOS_SERVER"},
         {"name": "ZOOKEEPER_CLIENT"},
         {"name": "ZOOKEEPER_SERVER"}
       ],
