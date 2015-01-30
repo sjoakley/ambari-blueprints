@@ -1,4 +1,11 @@
 {
+  "configurations": [ 
+    {
+      "nagios-env": {
+        "nagios_contact": "admin@localhost"
+      }
+    }
+  ],
   "host_groups": [
     {
       "name": "master",
@@ -16,6 +23,7 @@
         {"name": "RESOURCEMANAGER"},
         {"name": "SECONDARY_NAMENODE"},
         {"name": "YARN_CLIENT"},
+        {"name": "NAGIO_SERVER"},
         {"name": "ZOOKEEPER_CLIENT"},
         {"name": "ZOOKEEPER_SERVER"}
       ],
