@@ -1,0 +1,34 @@
+{
+  "host_groups": [
+    {
+      "name": "master",
+      "configurations": [],
+      "components": [
+        {"name": "AMBARI_SERVER"},
+        {"name": "APP_TIMELINE_SERVER"},
+        {"name": "DATANODE"},
+        {"name": "DRPC_SERVER"},
+        {"name": "HBASE_CLIENT"},
+        {"name": "HBASE_MASTER"},
+        {"name": "HBASE_REGIONSERVER"},
+        {"name": "HDFS_CLIENT"},
+        {"name": "HISTORYSERVER"},
+        {"name": "KAFKA_BROKER"},
+        {"name": "MAPREDUCE2_CLIENT"},
+        {"name": "NAMENODE"},
+        {"name": "NODEMANAGER"},
+        {"name": "RESOURCEMANAGER"},
+        {"name": "SECONDARY_NAMENODE"},
+        {"name": "YARN_CLIENT"},
+        {"name": "ZOOKEEPER_CLIENT"},
+        {"name": "ZOOKEEPER_SERVER"}
+      ],
+      "cardinality": "1"
+    }
+  ],
+  "Blueprints": {
+    "blueprint_name": "single-node-hdfs-hbase",
+    "stack_name": "HDP",
+    "stack_version": "2.2"
+  }
+}
