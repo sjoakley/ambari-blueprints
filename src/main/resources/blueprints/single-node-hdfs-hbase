@@ -23,6 +23,8 @@
         {"name": "RESOURCEMANAGER"},
         {"name": "SECONDARY_NAMENODE"},
         {"name": "YARN_CLIENT"},
+        {"name": "GANGLIA_MONITOR"},
+        {"name": "GANGLIA_SERVER"},
         {"name": "NAGIO_SERVER"},
         {"name": "ZOOKEEPER_CLIENT"},
         {"name": "ZOOKEEPER_SERVER"}
