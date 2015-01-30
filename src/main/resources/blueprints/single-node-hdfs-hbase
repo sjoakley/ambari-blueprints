@@ -2,12 +2,10 @@
   "host_groups": [
     {
       "name": "master",
-      "configurations": [],
       "components": [
         {"name": "AMBARI_SERVER"},
         {"name": "APP_TIMELINE_SERVER"},
         {"name": "DATANODE"},
-        {"name": "DRPC_SERVER"},
         {"name": "HBASE_CLIENT"},
         {"name": "HBASE_MASTER"},
         {"name": "HBASE_REGIONSERVER"},
