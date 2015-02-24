@@ -1,0 +1,279 @@
+{
+  "configurations" : [
+    {
+      "cluster-env" : {
+        "hadoop-streaming_tar_destination_folder" : "hdfs:///hdp/apps/{{ hdp_stack_version }}/mapreduce/",
+        "hadoop-streaming_tar_source" : "/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar",
+        "hive_tar_destination_folder" : "hdfs:///hdp/apps/{{ hdp_stack_version }}/hive/",
+        "hive_tar_source" : "/usr/hdp/current/hive-client/hive.tar.gz",
+        "ignore_groupsusers_create" : "false",
+        "kerberos_domain" : "EXAMPLE.COM",
+        "mapreduce_tar_destination_folder" : "hdfs:///hdp/apps/{{ hdp_stack_version }}/mapreduce/",
+        "mapreduce_tar_source" : "/usr/hdp/current/hadoop-client/mapreduce.tar.gz",
+        "pig_tar_destination_folder" : "hdfs:///hdp/apps/{{ hdp_stack_version }}/pig/",
+        "pig_tar_source" : "/usr/hdp/current/pig-client/pig.tar.gz",
+        "security_enabled" : "false",
+        "smokeuser" : "ambari-qa",
+        "sqoop_tar_destination_folder" : "hdfs:///hdp/apps/{{ hdp_stack_version }}/sqoop/",
+        "sqoop_tar_source" : "/usr/hdp/current/sqoop-client/sqoop.tar.gz",
+        "tez_tar_destination_folder" : "hdfs:///hdp/apps/{{ hdp_stack_version }}/tez/",
+        "tez_tar_source" : "/usr/hdp/current/tez-client/lib/tez.tar.gz",
+        "user_group" : "hadoop"
+      }
+    },
+    {
+      "ganglia-env" : {
+        "additional_clusters" : " ",
+        "ganglia_runtime_dir" : "/var/run/ganglia/hdp",
+        "gmetad_user" : "nobody",
+        "gmond_user" : "nobody",
+        "rrdcached_base_dir" : "/var/lib/ganglia/rrds",
+        "rrdcached_delay" : "1800",
+        "rrdcached_flush_timeout" : "7200",
+        "rrdcached_timeout" : "3600",
+        "rrdcached_write_threads" : "4"
+      }
+    },
+    {
+      "hadoop-env" : {
+        "hadoop_pid_dir_prefix" : "/var/run/hadoop",
+        "hadoop_root_logger" : "INFO,RFA",
+        "hdfs_log_dir_prefix" : "/var/log/hadoop",
+        "hdfs_user" : "hdfs",
+        "proxyuser_group" : "users"
+      }
+    },
+    {
+      "nagios-env" : {
+        "nagios_group" : "nagios",
+        "nagios_user" : "nagios",
+        "nagios_web_login" : "nagiosadmin",
+        "nagios_contact": "rtp-noreply@marketo.com"
+      }
+    },
+    {
+      "oozie-env" : {
+        "oozie_admin_port" : "11001",
+        "oozie_ambari_database" : "MySQL",
+        "oozie_data_dir" : "/mnt/hadoop/oozie/data",
+        "oozie_database" : "Existing MySQL Database",
+        "oozie_existing_mysql_database" : "MySQL",
+        "oozie_existing_mysql_host" : "",
+        "oozie_user" : "oozie"
+      }
+    },
+    {
+      "zoo.cfg" : {
+        "clientPort" : "2181",
+        "dataDir" : "/mnt/hadoop/zookeeper",
+        "initLimit" : "10",
+        "syncLimit" : "5",
+        "tickTime" : "2000"
+      }
+    },
+    {
+      "core-site" : {
+        "fs.defaultFS" : "hdfs://rtp",
+        "fs.trash.interval" : "360",
+        "ha.zookeeper.quorum" : "%HOSTGROUP::host_group_6%:2181",
+        "hadoop.http.authentication.simple.anonymous.allowed" : "true",
+        "hadoop.proxyuser.oozie.groups" : "*",
+        "hadoop.proxyuser.oozie.hosts" : "%HOSTGROUP::host_group_5%",
+        "hadoop.security.auth_to_local" : "\n        RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/\n        RULE:[2:$1@$0](jhs@.*)s/.*/mapred/\n        RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/\n        RULE:[2:$1@$0](hm@.*)s/.*/hbase/\n        RULE:[2:$1@$0](rs@.*)s/.*/hbase/\n        DEFAULT",
+        "hadoop.security.authentication" : "simple",
+        "hadoop.security.authorization" : "false",
+        "io.compression.codecs" : "org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.SnappyCodec",
+        "io.file.buffer.size" : "131072",
+        "io.serializations" : "org.apache.hadoop.io.serializer.WritableSerialization",
+        "ipc.client.connect.max.retries" : "50",
+        "ipc.client.connection.maxidletime" : "30000",
+        "ipc.client.idlethreshold" : "8000",
+        "ipc.server.tcpnodelay" : "true",
+        "mapreduce.jobtracker.webinterface.trusted" : "false",
+        "proxyuser_group" : "users"
+      }
+    },
+    {
+      "hdfs-site" : {
+        "dfs.block.access.token.enable" : "true",
+        "dfs.blockreport.initialDelay" : "120",
+        "dfs.blocksize" : "134217728",
+        "dfs.client.failover.proxy.provider.rtp" : "org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider",
+        "dfs.client.read.shortcircuit" : "true",
+        "dfs.client.read.shortcircuit.streams.cache.size" : "4096",
+        "dfs.cluster.administrators" : " hdfs",
+        "dfs.datanode.address" : "0.0.0.0:50010",
+        "dfs.datanode.balance.bandwidthPerSec" : "6250000",
+        "dfs.datanode.data.dir" : "/mnt/hadoop/hdfs/data",
+        "dfs.datanode.data.dir.perm" : "750",
+        "dfs.datanode.du.reserved" : "1073741824",
+        "dfs.datanode.failed.volumes.tolerated" : "0",
+        "dfs.datanode.http.address" : "0.0.0.0:50075",
+        "dfs.datanode.https.address" : "0.0.0.0:50475",
+        "dfs.datanode.ipc.address" : "0.0.0.0:8010",
+        "dfs.datanode.max.transfer.threads" : "4096",
+        "dfs.domain.socket.path" : "/var/lib/hadoop-hdfs/dn_socket",
+        "dfs.ha.automatic-failover.enabled" : "true",
+        "dfs.ha.fencing.methods" : "shell(/bin/true)",
+        "dfs.ha.namenodes.rtp" : "nn1,nn2",
+        "dfs.heartbeat.interval" : "3",
+        "dfs.hosts.exclude" : "/etc/hadoop/conf/dfs.exclude",
+        "dfs.http.policy" : "HTTP_ONLY",
+        "dfs.https.port" : "50470",
+        "dfs.journalnode.edits.dir" : "/hadoop/hdfs/journal",
+        "dfs.journalnode.http-address" : "0.0.0.0:8480",
+        "dfs.namenode.accesstime.precision" : "0",
+        "dfs.namenode.avoid.read.stale.datanode" : "true",
+        "dfs.namenode.avoid.write.stale.datanode" : "true",
+        "dfs.namenode.checkpoint.dir" : "/mnt/hadoop/hdfs/namesecondary",
+        "dfs.namenode.checkpoint.edits.dir" : "${dfs.namenode.checkpoint.dir}",
+        "dfs.namenode.checkpoint.period" : "21600",
+        "dfs.namenode.checkpoint.txns" : "1000000",
+        "dfs.namenode.handler.count" : "40",
+        "dfs.namenode.http-address" : "%HOSTGROUP::host_group_2%:50070",
+        "dfs.namenode.http-address.rtp.nn1" : "%HOSTGROUP::host_group_2%:50070",
+        "dfs.namenode.http-address.rtp.nn2" : "%HOSTGROUP::host_group_3%:50070",
+        "dfs.namenode.https-address" : "%HOSTGROUP::host_group_2%:50470",
+        "dfs.namenode.https-address.rtp.nn1" : "%HOSTGROUP::host_group_2%:50470",
+        "dfs.namenode.https-address.rtp.nn2" : "%HOSTGROUP::host_group_3%:50470",
+        "dfs.namenode.name.dir" : "/mnt/hadoop/hdfs/namenode",
+        "dfs.namenode.name.dir.restore" : "true",
+        "dfs.namenode.rpc-address.rtp.nn1" : "%HOSTGROUP::host_group_2%:8020",
+        "dfs.namenode.rpc-address.rtp.nn2" : "%HOSTGROUP::host_group_3%:8020",
+        "dfs.namenode.safemode.threshold-pct" : "0.99f",
+        "dfs.namenode.secondary.http-address" : "%HOSTGROUP::host_group_3%:50090",
+        "dfs.namenode.shared.edits.dir" : "qjournal://%HOSTGROUP::host_group_3%:8485;%HOSTGROUP::host_group_4%:8485;%HOSTGROUP::host_group_5%:8485/rtp",
+        "dfs.namenode.stale.datanode.interval" : "30000",
+        "dfs.namenode.startup.delay.block.deletion.sec" : "3600",
+        "dfs.namenode.write.stale.datanode.ratio" : "1.0f",
+        "dfs.nameservices" : "rtp",
+        "dfs.permissions.enabled" : "true",
+        "dfs.permissions.superusergroup" : "hdfs",
+        "dfs.replication" : "3",
+        "dfs.replication.max" : "50",
+        "dfs.support.append" : "true",
+        "dfs.webhdfs.enabled" : "true",
+        "fs.permissions.umask-mode" : "022"
+      }
+    }
+  ],
+  "host_groups" : [
+    {
+      "name" : "resourcemanager",
+      "configurations" : [ ],
+      "components" : [
+        {
+          "name" : "ZOOKEEPER_CLIENT"
+        },
+        {
+          "name" : "HISTORYSERVER"
+        },
+        {
+          "name" : "NAGIOS_SERVER"
+        },
+        {
+          "name" : "OOZIE_SERVER"
+        },
+        {
+          "name" : "OOZIE_CLIENT"
+        },
+        {
+          "name" : "APP_TIMELINE_SERVER"
+        },
+        {
+          "name" : "HDFS_CLIENT"
+        },
+        {
+          "name" : "YARN_CLIENT"
+        },
+        {
+          "name" : "MAPREDUCE2_CLIENT"
+        },
+        {
+          "name" : "GANGLIA_SERVER"
+        },
+        {
+          "name" : "GANGLIA_MONITOR"
+        },
+        {
+          "name" : "RESOURCEMANAGER"
+        },
+        {
+          "name" : "JOURNALNODE"
+        }
+      ],
+      "cardinality" : "2"
+    },
+    {
+      "name" : "datanode",
+      "configurations" : [ ],
+      "components" : [
+        {
+          "name" : "ZOOKEEPER_CLIENT"
+        },
+        {
+          "name" : "OOZIE_CLIENT"
+        },
+        {
+          "name" : "NODEMANAGER"
+        },
+        {
+          "name" : "HDFS_CLIENT"
+        },
+        {
+          "name" : "YARN_CLIENT"
+        },
+        {
+          "name" : "MAPREDUCE2_CLIENT"
+        },
+        {
+          "name" : "DATANODE"
+        },
+        {
+          "name" : "GANGLIA_MONITOR"
+        }
+      ],
+      "cardinality" : "5"
+    },
+    {
+      "name" : "namenode",
+      "configurations" : [ ],
+      "components" : [
+        {
+          "name" : "NAMENODE"
+        },
+        {
+          "name" : "HDFS_CLIENT"
+        },
+        {
+          "name" : "ZKFC"
+        },
+        {
+          "name" : "GANGLIA_MONITOR"
+        },
+        {
+          "name" : "JOURNALNODE"
+        }
+      ],
+      "cardinality" : "1"
+    },
+    {
+      "name" : "zookeeper",
+      "configurations" : [ ],
+      "components" : [
+        {
+          "name" : "ZOOKEEPER_SERVER"
+        },
+        {
+          "name" : "GANGLIA_MONITOR"
+        }
+      ],
+      "cardinality" : "3"
+    }
+  ],
+  "Blueprints" : {
+    "stack_name" : "HDP",
+    "stack_version" : "2.2",
+    "blueprint_name": "rtpcluster"
+  }
+}
